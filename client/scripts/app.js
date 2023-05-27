@@ -19,6 +19,8 @@ var App = {
     App.startSpinner();
     App.fetch(App.stopSpinner);
 
+    //let viewAll = function (data) {console.log(data)};
+
     // TODO: Make sure the app loads data from the API
     // continually, instead of just once at the start.
   },
@@ -26,11 +28,16 @@ var App = {
   fetch: function(callback = ()=>{}) {
     Parse.readAll((data) => {
       // examine the response from the server request:
-      console.log(data);
+      //return d;
+      //console.log('DUMPING INTO MESSAGES');
+      Messages.dump(data);
+      Messages.rendFeed();
+      //console.log('FIRST MESSAGE', Messages._data[0]);
 
       // TODO: Use the data to update Messages and Rooms
       // and re-render the corresponding views.
     });
+    //console.log(data);
   },
 
   startSpinner: function() {

@@ -9,6 +9,7 @@ var RoomsView = {
   initialize: function() {
     // TODO: Perform any work which needs to be done
     // when this view loads.
+    // let $rooms = $
   },
 
   render: function() {
@@ -16,7 +17,9 @@ var RoomsView = {
   },
 
   renderRoom: function(roomname) {
-    // TODO: Render out a single room.
+    let divString = `<option value=${roomname}>${roomname}</option>`;
+    $('#rooms select').append(divString);
+
   },
 
   handleChange: function(event) {
