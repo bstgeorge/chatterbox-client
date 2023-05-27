@@ -25,7 +25,6 @@ var Parse = {
   },
 
   readAll: function(successCB, errorCB = null) {
-    console.log("inside READALL YAYYAYAY");
     $.ajax({
       url: Parse.server,
       type: 'GET',

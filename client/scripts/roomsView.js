@@ -10,16 +10,19 @@ var RoomsView = {
     // TODO: Perform any work which needs to be done
     // when this view loads.
     // let $rooms = $
+    //RoomsView.renderRoom('add new room...');
   },
 
-  render: function() {
+  render: function(roomNames) {
     // TODO: Render out the list of rooms.
+    roomNames.forEach(function(a) {
+      RoomsView.renderRoom(a);
+    });
   },
 
   renderRoom: function(roomname) {
     let divString = `<option value=${roomname}>${roomname}</option>`;
     $('#rooms select').append(divString);
-
   },
 
   handleChange: function(event) {

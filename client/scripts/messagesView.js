@@ -10,8 +10,15 @@ var MessagesView = {
     // when this view loads.
   },
 
-  render: function() {
+  render: function(msgs) {
+    //REMOVE ARGUMENT
     // TODO: Render _all_ the messages.
+    // _data.forEach(function (a) {
+    //   MessagesView.rendMessage(a);
+    // });
+    msgs.forEach(function (a) {
+      MessagesView.renderMessage(a);
+    });
   },
 
   renderMessage: function(message) {

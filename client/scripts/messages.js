@@ -12,27 +12,20 @@ var Messages = {
   dump: function (input) {
     //console.log("inside dump, input IS ", input);
     _data = input;
-    console.log(_data);
   },
   messageGood: function (mess) {
     if (mess.username !== null && mess.text !== null && mess.room !== null) {
-      if (false) {
-        //EDIT for XSS
-      }
       return true;
     }
     return false;
   },
 
-  rendMessage: function (mess) {
-    if (Messages.messageGood(mess)) {
-      MessagesView.renderMessage(mess);
-    }
-  },
-
   rendFeed: function() {
-    _data.forEach(function (a) {
-      Messages.rendMessage(a);
+    let filtered = _.filter(_data, function (a) {
+      return Messages.messageGood(a);
     });
+    Rooms.makeRooms(filtered);
+    MessagesView.render(filtered);
+
   }
 };

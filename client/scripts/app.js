@@ -32,6 +32,8 @@ var App = {
       //console.log('DUMPING INTO MESSAGES');
       Messages.dump(data);
       Messages.rendFeed();
+      callback();
+      //fetch(callback);
       //console.log('FIRST MESSAGE', Messages._data[0]);
 
       // TODO: Use the data to update Messages and Rooms
