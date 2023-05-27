@@ -8,17 +8,29 @@ var Rooms = {
   _data: [],
 
   addRoom: function (roomName) {
-    Rooms._data.push(roomName);
+    if (!Rooms.roomExists(roomName)) {
+      Rooms._data.push(roomName);
+    }
 
   },
   // TODO: Define methods which allow you to add rooms, update the list,
   // mark a room as selected, etc.
   makeRooms: function (messages) {
     messages.forEach(function (singleMessage) {
-      if (!Rooms._data.includes(singleMessage.roomname)) {
-        Rooms.addRoom(singleMessage.roomname);
-      }
+      Rooms.addRoom(singleMessage.roomname);
     });
     RoomsView.render(Rooms._data);
+  },
+
+  roomExists: function (roomName) {
+    if (Rooms._data.includes(roomName)) {
+      return true;
+    } return false;
+  },
+
+  validRoom: function (roomName) {
+    if (roomName !== null) {
+      return true;
+    }
   }
 };

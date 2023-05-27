@@ -11,13 +11,17 @@ var Messages = {
   // add to, and generally interact with the messages.
   dump: function (input) {
     //console.log("inside dump, input IS ", input);
+    //_data = [{username: 'dingdong', text: 'dingdingding', room: 'roomname2'}];
     _data = input;
   },
   messageGood: function (mess) {
     if (mess.username !== null && mess.text !== null && mess.room !== null) {
-      return true;
-    }
-    return false;
+      if (mess.username !== undefined && mess.text !== undefined) {
+        if (!mess.username.includes('script') && !mess.text.includes('script')) { //add ROOM script check
+          return true;
+        }
+      }
+    } return false;
   },
 
   rendFeed: function() {

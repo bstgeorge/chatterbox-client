@@ -18,7 +18,7 @@ var App = {
     // Fetch initial batch of messages
     App.startSpinner();
     App.fetch(App.stopSpinner);
-
+    setInterval(App.fetch, 5000);
     //let viewAll = function (data) {console.log(data)};
 
     // TODO: Make sure the app loads data from the API
@@ -27,12 +27,14 @@ var App = {
 
   fetch: function(callback = ()=>{}) {
     Parse.readAll((data) => {
+      console.log("FEtch CHECK?????");
       // examine the response from the server request:
       //return d;
       //console.log('DUMPING INTO MESSAGES');
       Messages.dump(data);
       Messages.rendFeed();
       callback();
+      //setTimeout(App.fetch(), 2000);
       //fetch(callback);
       //console.log('FIRST MESSAGE', Messages._data[0]);
 

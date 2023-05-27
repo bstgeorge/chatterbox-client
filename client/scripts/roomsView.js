@@ -15,6 +15,12 @@ var RoomsView = {
 
   render: function(roomNames) {
     // TODO: Render out the list of rooms.
+    //
+    $('#rooms select option').each(
+      function () {
+        $(this).remove();
+      }
+    );
     roomNames.forEach(function(a) {
       RoomsView.renderRoom(a);
     });

@@ -16,9 +16,11 @@ var MessagesView = {
     // _data.forEach(function (a) {
     //   MessagesView.rendMessage(a);
     // });
+    MessagesView.$chats.html('');
     msgs.forEach(function (a) {
       MessagesView.renderMessage(a);
     });
+
   },
 
   renderMessage: function(message) {
